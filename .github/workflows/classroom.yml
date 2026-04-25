@@ -22,7 +22,7 @@ jobs:
       - name: Autograding Marks
         uses: education/autograding-command-grader@v1
         with:
-          test-name: Filter Algorithm Tests
+          test-name: filter_tests
           setup-command: npm install
           command: npm test
           timeout: 1
@@ -32,4 +32,4 @@ jobs:
         uses: education/autograding-grading-reporter@v1
         if: always()
         with:
-          runners: Filter Algorithm Tests
+          runners: filter_tests

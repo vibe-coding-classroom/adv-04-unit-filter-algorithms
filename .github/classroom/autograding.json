@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "name": "Filter Algorithm Tests",
+      "name": "filter_tests",
       "setup": "npm install",
       "run": "npm test",
       "input": "",
