@@ -20,6 +20,7 @@ jobs:
           node-version: '20'
 
       - name: Autograding Marks
+        id: filter_tests
         uses: education/autograding-command-grader@v1
         with:
           test-name: filter_tests
