@@ -1,5 +1,3 @@
-Viewed adv-04-unit-filter-algorithms.html:1-574
-
 針對 **`adv-04-unit-filter-algorithms` (數據抖動與數位濾波演算法)** 單元，這是一個將「原始物理訊號」進行數學提純的進階技術課，對於打造穩定的自駕系統或傳感器終端至關重要。
 
 以下是在 **GitHub Classroom** 部署其作業 (Assignments) 的具體建議：
