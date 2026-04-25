@@ -10,8 +10,12 @@ class MovingAverage {
    * @returns {number}
    */
   update(newValue) {
-    // TODO: Implement moving average logic
-    return newValue;
+    this.buffer.push(newValue);
+    if (this.buffer.length > this.windowSize) {
+      this.buffer.shift();
+    }
+    const sum = this.buffer.reduce((a, b) => a + b, 0);
+    return sum / this.buffer.length;
   }
 }
 

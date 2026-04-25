@@ -10,8 +10,18 @@ class MedianFilter {
    * @returns {number}
    */
   update(newValue) {
-    // TODO: Implement median filter logic
-    return newValue;
+    this.buffer.push(newValue);
+    if (this.buffer.length > this.windowSize) {
+      this.buffer.shift();
+    }
+    const sorted = [...this.buffer].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    
+    if (sorted.length % 2 === 0) {
+      return (sorted[mid - 1] + sorted[mid]) / 2;
+    } else {
+      return sorted[mid];
+    }
   }
 }
 
