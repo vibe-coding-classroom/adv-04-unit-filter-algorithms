@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Filter Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+        input, select {
+            background: #334155;
+            border: 1px solid #475569;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            outline: none;
+        }
+        input:focus {
+            border-color: var(--accent-color);
+        }
+        .chart-container {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 500px;
+        }
+        .btn {
+            background: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Filter Simulator</h1>
+            <p>Compare different filtering algorithms against noisy sensor data.</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="filter-type">Algorithm</label>
+                <select id="filter-type">
+                    <option value="moving-average">Moving Average</option>
+                    <option value="median">Median Filter</option>
+                    <option value="adaptive">Adaptive Alpha LPF</option>
+                </select>
+            </div>
+            <div class="control-group" id="window-size-group">
+                <label for="window-size">Window Size / Alpha</label>
+                <input type="number" id="param-value" value="5" step="1">
+            </div>
+            <div class="control-group">
+                <button class="btn" id="run-btn">Run Simulation</button>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="filterChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Load filter scripts -->
+    <script src="../src/MovingAverage.js"></script>
+    <script src="../src/MedianFilter.js"></script>
+    <script src="../src/AdaptiveFilter.js"></script>
+    <script src="chart_app.js"></script>
+</body>
+</html>

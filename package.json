@@ -1,0 +1,12 @@
+{
+  "name": "adv-04-unit-filter-algorithms",
+  "version": "1.0.0",
+  "description": "Digital filter algorithms classroom unit",
+  "main": "src/MovingAverage.js",
+  "scripts": {
+    "test": "node test/grading.js",
+    "bench": "node test/accuracy_test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
